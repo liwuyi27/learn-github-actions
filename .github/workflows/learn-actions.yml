@@ -21,4 +21,4 @@ jobs:
             # 要上传文件所在目录
           local_path: "./index.html"
             # 远程服务器目标路径
-          target_path: "/root/"
+          target_path: "/home/my-nginx/"
