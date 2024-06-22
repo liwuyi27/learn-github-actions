@@ -6,8 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
+      - name: install nodejs
+        uses: actions/setup-node@v4
+        with: 
           node-version: '20'
-      - run: npm install -g bats
-      - run: bats -v
+      - name: move dist to server
+        uses: appleboy/scp-action@v0.0.1
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          password: ${{ secrets.REMOTE_PASS }}
+          port: 22
+          source: "index.html"
+          target: "/MyNginx"
