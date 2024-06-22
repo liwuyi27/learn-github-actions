@@ -14,7 +14,7 @@ jobs:
       - name: move dist to server
         uses: appleboy/scp-action@v0.0.1
         with:
-          host: ${{ secrets.REMOTE_HOST }}
+          host: 8.219.139.70
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASS }}
           port: 22
